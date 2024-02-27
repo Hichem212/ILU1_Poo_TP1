@@ -24,12 +24,13 @@ public class Gaulois {
 	
 	private String prendreParole() {
 		return "Le gaulois" + nom + ":";
+
 		
 	}
 	
 	public void frapper(Romain romain) {
-		System.out.println(nom + "envoie un grand coup dans la machoire de" + romain.getNom());
-		romain.recevoirCoup(force / 3 );
+		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
+		romain.recevoirCoup(force / 3 * effetPotion );
 		
 		
 	}
@@ -42,8 +43,21 @@ public class Gaulois {
 	
 	public static void main(String[] args) {
 		//TODO créer un main permettant de tester la classe Gaulois 
+		Gaulois asterix = new Gaulois("Astérix",8) ; 
+		System.out.println(asterix);
+		Romain romain = new Romain("César",5);
+		asterix.prendreParole();
+		asterix.parler(" hey");
+		asterix.frapper(romain);
+		asterix.boirePotion(forcePotion, effetPotion);
+	}
+	
+	public void boirePotion(int forcePotion) {
+		System.out.println("Merci Druide,je sens que ma force est " + forcePotion + "décuplée");
 		
 	}
+	
+
 }
 
 
