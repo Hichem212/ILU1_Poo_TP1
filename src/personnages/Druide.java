@@ -1,16 +1,19 @@
 package personnages;
+import java.nio.file.spi.FileSystemProvider;
 import java.util.Random;
+
+
 public class Druide {
 	private String nom;
 	private int effetPotionMin;
 	private int effetPotionMax;
-	private int forcePotion ; 
+	int forcePotion ; 
+	private int effetPotion = 1;
 	
 	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
 		this.nom = nom;
 		this.effetPotionMin = effetPotionMin;
 		this.effetPotionMax = effetPotionMax;
-		this.forcePotion = 1;
 		parler("Bonjour, je suis le druide " + nom+ " et ma potion peut aller d'une force " + effetPotionMin + " à "+ effetPotionMax + ".");
 	}
 	public String getNom() {
@@ -24,22 +27,30 @@ public class Druide {
 		return "Le druide " + nom + " : ";
 	}
 	
-	public void preparerPotion() {
+	public void  preparerPotion() {
 		Random random = new Random();
-		 int forcePotion = random.nextInt(effetPotionMax) +1 ;
-		 
-		 if (forcePotion > 7) {
-				System.out.println("J'ai préparer une super potion de force" + forcePotion);
-				
-			} else {
-				System.out.println("Je n'ai pas trouvé tous les ingrédients de force" + forcePotion);
-
-			}
+		forcePotion = effetPotionMin + random.nextInt(effetPotionMax - effetPotionMin + 1);
+	      if (forcePotion > 7) {
+	          System.out.println("J'ai préparé une super potion de force " + forcePotion);
+	      } else {
+	          System.out.println("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + forcePotion);
+	       }
+		
 	}
 	
 	public static void main(String[] args) {
-		Druide druide = new Druide("Panoramix",5,10);
+		Druide druide = new Druide("Panoramix",5, 10);
 		druide.preparerPotion() ; 
+	}
+	
+	public void  booster(Gaulois gaulois) { 
+		gaulois.boirePotion(forcePotion); 
+		if ((gaulois.getNom().equals("Obélix"))) {
+			System.out.println("Non,Obélix !... Tu n'auras pas de potion magique !");
+			
+			
+			
+		}
 	}
 	
 }

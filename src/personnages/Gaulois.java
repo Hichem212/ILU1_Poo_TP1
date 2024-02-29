@@ -5,11 +5,12 @@ import java.util.Iterator;
 public class Gaulois {
 	private String nom ;
 	private int force ; 
-	private int effetPotion = 1 ;
-	
+	private int effetPotion;
+
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+		this.effetPotion = 1 ;
 	}
 	
 
@@ -49,11 +50,11 @@ public class Gaulois {
 		asterix.prendreParole();
 		asterix.parler(" hey");
 		asterix.frapper(romain);
-		asterix.boirePotion(forcePotion, effetPotion);
 	}
 	
 	public void boirePotion(int forcePotion) {
-		System.out.println("Merci Druide,je sens que ma force est " + forcePotion + "décuplée");
+		this.effetPotion = forcePotion ;
+		System.out.println("Merci Druide,je sens que ma force est " + effetPotion + " fois décuplée");
 		
 	}
 	
