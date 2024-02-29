@@ -1,5 +1,7 @@
 package personnages;
 
+import java.util.Iterator;
+
 public class Village {
 	private String nom;
 	private Chef chef;
@@ -38,14 +40,35 @@ public class Village {
             nbVillageois++;
 		}
     }
-	public Gaulois trouberHabitant(int numero) {
+	public Gaulois trouverHabitant(int numero) {
 		return villageois[numero];
 		
 	}
 	
 	public static void main(String[] args) {
 		Village village = new Village("Village des Irréductible",30);
-		
-	
+		//Gaulois gaulois = village.trouverHabitant(30);
+		// Il y'a cette erreur The method trouverHabitant(int) is undefined for the type Village at personnages.Village.main(Village.java:48)
+		Gaulois abraracourcix = new Gaulois("abraracourcix",6);
+		//village.setChef(abraracourcix);
+		Gaulois asterix = new Gaulois("Astérix",8);
+		village.ajouterHabitant(asterix);
+		//Gaulois gaulois = village.trouverHabitant(1);
+		//System.out.println(gaulois);
+		//Cela renvoie null car Astérix arrive au rang 0 est non au rang 1
+		Gaulois obelix = new Gaulois("Obélix",25);
+		village.ajouterHabitant(obelix);
+		village.afficherVillageois();
+
 	}
+	public void afficherVillageois() {
+		System.out.println("Dans le village du chef Abracourcix vivent les légendaires gaulois : ");
+		
+		for(int i = 0; i< nbVillageois ;i++ ) {
+			System.out.println("-" + villageois[i].getNom() + "\n");
+		}
+
+	}
+	
+	
 }
