@@ -68,7 +68,7 @@ public class Romain {
 			break ;
 		}
 		case 1:{
-			if(this.equipement[0] == equipement) {
+			if(this.equipement[0].equals(equipement)) {
 				System.out.println(" Le soldat " + getNom() + " posséde déja " + equipement);
 				break;
 		
