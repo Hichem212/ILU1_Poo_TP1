@@ -44,10 +44,10 @@ public class Druide {
 	}
 	
 	public void  booster(Gaulois gaulois) { 
-		gaulois.boirePotion(forcePotion); 
 		if ((gaulois.getNom().equals("Obélix"))) {
-			System.out.println("Non,Obélix !... Tu n'auras pas de potion magique !");
-			
+			parler("Non,Obélix !... Tu n'auras pas de potion magique !");
+		}else {
+			gaulois.boirePotion(forcePotion);			
 			
 			
 		}
